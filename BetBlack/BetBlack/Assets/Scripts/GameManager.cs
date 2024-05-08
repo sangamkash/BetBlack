@@ -1,12 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using InventorySystem.Items;
 using InventorySystem.DataSystem;
 using System;
-using Unity.VisualScripting.Dependencies.NCalc;
-using InventorySystem.PlayerSystem;
-using InventorySystem.UI;
 
 namespace InventorySystem
 {
@@ -26,12 +22,10 @@ namespace InventorySystem
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance;
-        [SerializeField] private PlayerController playerController;
         [SerializeField] private SpawnManager spawnManager;
         [SerializeField] private Vector3 spawnAreaSize;
         [SerializeField] private Vector3 gridSize;
         [SerializeField] private List<SpawnPoint> spawnPoints;
-        [SerializeField] private PlayerBodyPartController playerBodyController;
         private DataManager dataManager=>DataManager.Instance;
         private void Awake()
         {
@@ -89,8 +83,6 @@ namespace InventorySystem
         {
             switch (itemType)
             {
-                case ItemType.Stone:
-                    return Enum.GetNames(typeof(StoneType)).Length;
                 case ItemType.Food:
                     return Enum.GetNames(typeof(FoodType)).Length;
                 case ItemType.Weapon:
@@ -104,7 +96,6 @@ namespace InventorySystem
         public void EquipItem(ItemType itemType,int subType)
         {
             var gameObj=spawnManager.Spawn(itemType, subType, Vector3.zero, null);
-            playerController.EquipItem(gameObj);
             var data=dataManager.GetLevelData();
             if (data != null)
             {

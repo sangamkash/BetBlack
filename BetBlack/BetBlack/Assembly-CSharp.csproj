@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Misc\GenericMonoPool.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementController.cs" />
+    <Compile Include="Assets\Scripts\PlayerItemController.cs" />
     <Compile Include="Assets\Scripts\GameConstant.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Modifiers\CustomPremadeModifier.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Attributes\ModifierID.cs" />
@@ -69,10 +70,8 @@
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\ProceduralImage.cs" />
     <Compile Include="Assets\Scripts\Data\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\IntoScene.cs" />
-    <Compile Include="Assets\Scripts\Items\FoodItem.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Modifiers\OnlyOneEdgeModifier.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Misc\GenericItemFactory.cs" />
     <Compile Include="Assets\Scripts\Items\Bullet.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\ProceduralImageModifier.cs" />

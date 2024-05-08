@@ -13,9 +13,7 @@ namespace InventorySystem.PlayerSystem
         [SerializeField] private CharacterController characterController;
         [SerializeField] private float walkingSpeed = 7.5f;
         [SerializeField] private  float runningSpeed = 11.5f;
-        [SerializeField] private  float jumpSpeed = 8.0f;
         [SerializeField] private  float gravity = 20.0f;
-        [SerializeField] private  Camera playerCamera;
         [SerializeField] private  float lookSpeed = 2.0f;
         [SerializeField] private  float lookXLimit = 45.0f;
         [SerializeField]private  bool canMove = true;
@@ -42,14 +40,7 @@ namespace InventorySystem.PlayerSystem
             var movementDirectionY = moveDirection.y;
             moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-            if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
-            {
-                moveDirection.y = jumpSpeed;
-            }
-            else
-            {
-                moveDirection.y = movementDirectionY;
-            }
+            
             if (!characterController.isGrounded)
             {
                 moveDirection.y -= gravity * Time.deltaTime;
@@ -59,7 +50,7 @@ namespace InventorySystem.PlayerSystem
             {
                 rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
                 rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-                playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+                // playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
                 transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
             }
         }

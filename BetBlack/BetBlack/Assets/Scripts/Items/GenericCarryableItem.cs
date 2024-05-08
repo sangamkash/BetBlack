@@ -6,8 +6,9 @@ namespace InventorySystem.Items
     public class GenericCarryableItem : MonoBehaviour,ICarryable
     {
         protected Action onThrowDone;
-        public virtual void pickUp(Transform container,Action onThrowDone)
+        public virtual void pickUp(Transform container,Action onThrowDone=null)
         {
+            Debug.Log("pickUp");
             this.onThrowDone=onThrowDone;
             var colls = GetComponentsInChildren<Collider>();
             foreach (var col in colls)

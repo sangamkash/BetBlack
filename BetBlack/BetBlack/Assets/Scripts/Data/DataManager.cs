@@ -13,7 +13,6 @@ namespace InventorySystem.DataSystem
     [Serializable]
     public enum ItemType
     {
-        Stone,
         Food,
         Weapon,
         Wearable
@@ -77,8 +76,6 @@ namespace InventorySystem.DataSystem
         {
             switch (itemtype)
             {
-                case ItemType.Stone:
-                    return ((StoneType)(subtype)).ToString();
                 case ItemType.Food:
                     return ((FoodType)(subtype)).ToString();
                 case ItemType.Weapon:
