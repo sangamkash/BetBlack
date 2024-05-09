@@ -49,9 +49,9 @@ namespace BulletEcho.EnemySystem
             else if (opponentDetected == false)
             {
                 var diff = transform.position - destination;
-                var stopDis = navMeshAgent.stoppingDistance + 0.005f;
+                var stopDis = navMeshAgent.stoppingDistance + 0.05f;
                 var sqrStopDis = stopDis * stopDis;
-                Debug.Log($"dis=={diff.sqrMagnitude} <= {sqrStopDis} ");
+                //Debug.Log($"dis=={diff.sqrMagnitude} <= {sqrStopDis} || {Time.time - reachedTime}");
                 if (diff.sqrMagnitude <= sqrStopDis && Time.time - reachedTime > waitTime)
                 {
                     reachedTime = Time.time;
@@ -63,7 +63,7 @@ namespace BulletEcho.EnemySystem
 
         private void AssignRandomPath()
         {
-            Debug.Log("new path assigned");
+            //Debug.Log("new path assigned");
             newTargetAssigned = true;
             destination = RandomPoints.Instance.GetRandomPosition(ref lastRandomIndex);
         }
