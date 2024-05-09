@@ -7,86 +7,20 @@ using UnityEngine;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
 
+
 namespace BulletEcho.DataSystem
 {
-
-    [Serializable]
-    public enum ItemType
+    public static class DataUtil
     {
-        Food,
-        Weapon,
-        Wearable
-    }
-
-    [Serializable]
-    public enum StoneType
-    {
-        Stone1,
-        Stone2
-    }
-
-    [Serializable]
-    public enum WeaponType
-    {
-        Pistol,
-        Ak47,
-    }
-
-    [Serializable]
-    public enum WearableType
-    {
-        Cap,
-        Shoes
-    }
-    
-    [Serializable]
-    public enum FoodType
-    {
-        Apple,
-        Burger,
-        Pizza,
-    }
-
-    [Serializable]
-    public class ItemData
-    {
-        public ItemType itemType;
-        public int subItemType;
-        public int count;
+        
     }
 
     [Serializable]
     public class GamePlayData
     {
-        public int health;
-        public int level;
-        public Dictionary<ItemType,Dictionary<int, ItemData>> bagPackItems;
-        public GamePlayData()
-        {
-            health = 100;
-            level = 1;
-            bagPackItems = new Dictionary<ItemType, Dictionary<int, ItemData>>();
-        }
-
+       
     }
-
-    public static class DataUtil
-    {
-        public static string GetSubtypeName(this int subtype ,ItemType itemtype)
-        {
-            switch (itemtype)
-            {
-                case ItemType.Food:
-                    return ((FoodType)(subtype)).ToString();
-                case ItemType.Weapon:
-                    return ((WeaponType)(subtype)).ToString();
-                case ItemType.Wearable:
-                    return ((WearableType)(subtype)).ToString();
-            }
-
-            return string.Empty;
-        }
-    }
+   
     public class DataManager 
     {
        private static DataManager _Instance;
@@ -113,7 +47,6 @@ namespace BulletEcho.DataSystem
 #if UNITY_EDITOR
             return  Application.dataPath + "/" + JsonFilePath;
 #else
-            
             return   Application.persistentDataPath;
 #endif
             

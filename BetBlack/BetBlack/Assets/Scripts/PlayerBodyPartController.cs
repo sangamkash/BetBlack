@@ -26,7 +26,7 @@ namespace BulletEcho.PlayerSystem
         [SerializeField] private Transform legRight;
         private Dictionary<BodyPart, GameObject> bodyPartOccupied= new Dictionary<BodyPart, GameObject>();
 
-        public void AssigneObjToBodyPart(BodyPart bodyPart, GameObject gameObj)
+        public void AssignObjToBodyPart(BodyPart bodyPart, GameObject gameObj)
         {
             if (gameObj != null)
             {
@@ -64,29 +64,6 @@ namespace BulletEcho.PlayerSystem
                 default:
                     return null;
             }
-        }
-
-        public bool StoreInInvontry(BodyPart bodyPart)
-        {
-            if (bodyPartOccupied.ContainsKey(bodyPart))
-            {
-                var gameObj = bodyPartOccupied[bodyPart];
-                if(gameObj != null)
-                {
-                    switch (gameObj.tag)
-                    {
-                        case GameConstant.TAG_STONE:
-                            return false;
-                        case GameConstant.TAG_FOOD:
-                        case GameConstant.TAG_WEARABLE:
-                        case GameConstant.TAG_WEAPON:
-                            gameObj.GetComponent<GenericStorableItem>().Store();
-                            bodyPartOccupied[bodyPart] = null;
-                            return true;
-                    }
-                }
-            }
-            return false;
         }
 
         public void ThrowObject(BodyPart bodyPart)

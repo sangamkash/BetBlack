@@ -8,10 +8,8 @@ using UnityEngine.Serialization;
 
 namespace BulletEcho.Items
 {
-    public class WeaponItem : GenericStorableItem
+    public class WeaponItem : GenericCarryableItem
     {
-        [SerializeField] private ItemType itemType;
-        [SerializeField] private WeaponType weaponType;
         [SerializeField] private Transform shootPoint;
         [SerializeField] private float firePeriod=2;
         [SerializeField] private float speed = 25;
@@ -24,16 +22,6 @@ namespace BulletEcho.Items
         private void Awake()
         {
             bulletPool = new GenericMonoPool<Bullet>(bulletPrefab);
-        }
-
-        public override ItemType GetItemType()
-        {
-            return itemType;
-        }
-
-        public override int GetSubType()
-        {
-            return (int)(weaponType);
         }
 
         public override void pickUp(Transform container,Action onThrowDone)
@@ -50,8 +38,7 @@ namespace BulletEcho.Items
                 Shooting = null;
             }
         }
-
-
+        
         private IEnumerator EnableShoot()
         {
             while (true)

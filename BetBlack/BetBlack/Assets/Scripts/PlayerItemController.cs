@@ -26,7 +26,7 @@ namespace BulletEcho.PlayerSystem
                     ShowEquipping(1, Color.green,currentObj, () =>
                     {
                         var t=currentObj.GetComponent<GenericCarryableItem>();
-                        partController.AssigneObjToBodyPart(BodyPart.handRight, currentObj);
+                        partController.AssignObjToBodyPart(BodyPart.handRight, currentObj);
                     });
                     activeGameObjs.Add(currentObj);
                     break;
@@ -34,7 +34,7 @@ namespace BulletEcho.PlayerSystem
                     ShowEquipping(1, Color.green,currentObj, () =>
                     {
                         var t=currentObj.GetComponent<GenericCarryableItem>();
-                        partController.AssigneObjToBodyPart(BodyPart.handRight, currentObj);
+                        partController.AssignObjToBodyPart(BodyPart.handRight, currentObj);
                     });
                     activeGameObjs.Add(currentObj);
                     break;
@@ -42,7 +42,7 @@ namespace BulletEcho.PlayerSystem
                     ShowEquipping(1, Color.green,currentObj, () =>
                     {
                         var t=currentObj.GetComponent<GenericCarryableItem>();
-                        partController.AssigneObjToBodyPart(BodyPart.handRight, currentObj);
+                        partController.AssignObjToBodyPart(BodyPart.handRight, currentObj);
                     });
                     activeGameObjs.Add(currentObj);
                     break;
@@ -91,7 +91,7 @@ namespace BulletEcho.PlayerSystem
 
         public void EquipItem(GameObject gameObj)
         {
-            partController.AssigneObjToBodyPart(BodyPart.handRight, gameObj);
+            partController.AssignObjToBodyPart(BodyPart.handRight, gameObj);
         }
     }
 }

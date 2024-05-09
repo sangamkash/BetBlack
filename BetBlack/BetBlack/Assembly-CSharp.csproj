@@ -60,17 +60,14 @@
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Modifiers\UniformModifier.cs" />
     <Compile Include="Assets\Scripts\Data\DataManager.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
-    <Compile Include="Assets\Scripts\Items\GenericStorableItem.cs" />
     <Compile Include="Assets\Scripts\Items\GenericCarryableItem.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Modifiers\FreeModifier.cs" />
     <Compile Include="Assets\Scripts\Data\MsFileExtensions.cs" />
-    <Compile Include="Assets\Scripts\Data\ItemTypes.cs" />
     <Compile Include="Assets\Scripts\UI\CategoryCell.cs" />
     <Compile Include="Assets\Scripts\EnemyGun.cs" />
     <Compile Include="Assets\Scripts\Items\WearableItem.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\ProceduralImage.cs" />
-    <Compile Include="Assets\Scripts\Data\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\IntoScene.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Modifiers\OnlyOneEdgeModifier.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
