@@ -1,12 +1,12 @@
-using InventorySystem.DataSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BulletEcho.DataSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace InventorySystem.UI
+namespace BulletEcho.UI
 {
     public class UIManager : MonoBehaviour
     {

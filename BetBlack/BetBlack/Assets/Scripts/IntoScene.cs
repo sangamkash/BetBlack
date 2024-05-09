@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace InventorySystem
+namespace BulletEcho
 {
     public class IntoScene : MonoBehaviour
     {

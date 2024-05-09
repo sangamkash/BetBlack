@@ -1,10 +1,10 @@
-using InventorySystem.DataSystem;
+using BulletEcho.DataSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace InventorySystem.Items
+namespace BulletEcho.Items
 {
 
     /// <summary>

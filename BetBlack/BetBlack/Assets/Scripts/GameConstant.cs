@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace InventorySystem
+namespace BulletEcho
 {
     public static class GameConstant
     {
@@ -12,5 +12,7 @@ namespace InventorySystem
         public const string TAG_FOOD = "Food";
         public const string TAG_WEAPON = "Weapon";
         public const string TAG_WEARABLE = "Wearable";
+        public const string TAG_PLAYER = "Player";
+        public const string TAG_ENEMY = "Enemy";
     }
 }

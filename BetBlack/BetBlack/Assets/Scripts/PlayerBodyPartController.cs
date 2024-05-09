@@ -1,11 +1,11 @@
-using InventorySystem.Items;
-using InventorySystem.UI;
+using BulletEcho.UI;
 using System.Collections;
 using System.Collections.Generic;
+using BulletEcho.Items;
 using UnityEditor;
 using UnityEngine;
 
-namespace InventorySystem.PlayerSystem
+namespace BulletEcho.PlayerSystem
 {
     public enum BodyPart
     { 

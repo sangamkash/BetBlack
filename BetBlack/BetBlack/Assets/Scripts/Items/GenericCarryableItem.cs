@@ -1,23 +1,22 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
-namespace InventorySystem.Items
+namespace BulletEcho.Items
 {
     public class GenericCarryableItem : MonoBehaviour,ICarryable
     {
         protected Action onThrowDone;
-        public virtual void pickUp(Transform container,Action onThrowDone=null)
+        protected Collider[] colls;
+
+        public virtual void pickUp(Transform container, Action onThrowDone = null)
         {
-            Debug.Log("pickUp");
-            this.onThrowDone=onThrowDone;
-            var colls = GetComponentsInChildren<Collider>();
+            this.onThrowDone = onThrowDone;
+            colls = GetComponentsInChildren<Collider>();
             foreach (var col in colls)
             {
                 col.enabled = false;
             }
-            var rb = GetComponent<Rigidbody>();
-            if (rb != null)
-                rb.isKinematic = true;
             transform.SetParent(container.transform);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
@@ -26,16 +25,21 @@ namespace InventorySystem.Items
         public virtual void ThrowAway()
         {
             transform.SetParent(null);
-            var colls = GetComponentsInChildren<Collider>();
-            foreach (var col in colls)
+            StartCoroutine(Delay(1f, () =>
             {
-                col.enabled = true;
-            }
-            var rb = GetComponent<Rigidbody>();
-            if (rb != null)
-                rb.isKinematic = false;
-            rb.AddForce(transform.forward * 200);
+                foreach (var col in colls)
+                {
+                    col.enabled = true;
+                }
+            }));
             onThrowDone?.Invoke();  
         }
+
+        private IEnumerator Delay(float delaytime,Action OnComplete)
+        {
+            yield return new WaitForSeconds(delaytime);
+            OnComplete?.Invoke();
+        }
+        
     }
 }

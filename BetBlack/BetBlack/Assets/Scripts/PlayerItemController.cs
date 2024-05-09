@@ -1,11 +1,11 @@
 using System;
-using InventorySystem.UI;
 using System.Collections;
 using System.Collections.Generic;
-using InventorySystem.Items;
+using BulletEcho.Items;
+using BulletEcho.UI;
 using UnityEngine;
 
-namespace InventorySystem.PlayerSystem
+namespace BulletEcho.PlayerSystem
 {
     public class PlayerItemController : MonoBehaviour
     {
@@ -13,36 +13,36 @@ namespace InventorySystem.PlayerSystem
         private UIManager uiManager=>UIManager.Instance;
         private HashSet<GameObject> hs = new HashSet<GameObject>();    
         private List<GameObject> activeGameObjs= new List<GameObject>();
+        private GameObject currentEqpObj = null;
         private void OnTriggerEnter(Collider other)
         {
             var currentObj = other.gameObject;
             if(hs.Contains(currentObj))
                 return;
-            Debug.Log(currentObj.name+"::"+other.gameObject.tag);
+            hs.Add(currentObj);
             switch (other.gameObject.tag)
             {
                 case GameConstant.TAG_FOOD:
-                    ShowEquipping(2, Color.green, () =>
+                    ShowEquipping(1, Color.green,currentObj, () =>
                     {
                         var t=currentObj.GetComponent<GenericCarryableItem>();
-                        t.pickUp(partController.GetBodyPart(BodyPart.handRight), null);
+                        partController.AssigneObjToBodyPart(BodyPart.handRight, currentObj);
                     });
                     activeGameObjs.Add(currentObj);
                     break;
                 case GameConstant.TAG_WEARABLE:
-                    ShowEquipping(2, Color.green, () =>
+                    ShowEquipping(1, Color.green,currentObj, () =>
                     {
                         var t=currentObj.GetComponent<GenericCarryableItem>();
-                        t.pickUp(partController.GetBodyPart(BodyPart.handRight), null);
+                        partController.AssigneObjToBodyPart(BodyPart.handRight, currentObj);
                     });
                     activeGameObjs.Add(currentObj);
                     break;
                 case GameConstant.TAG_WEAPON:
-                    ShowEquipping(2, Color.green, () =>
+                    ShowEquipping(1, Color.green,currentObj, () =>
                     {
                         var t=currentObj.GetComponent<GenericCarryableItem>();
-                        Debug.Log($"{t!=null} || ");
-                        t.pickUp(partController.GetBodyPart(BodyPart.handRight), null);
+                        partController.AssigneObjToBodyPart(BodyPart.handRight, currentObj);
                     });
                     activeGameObjs.Add(currentObj);
                     break;
@@ -53,8 +53,9 @@ namespace InventorySystem.PlayerSystem
             }
         }
 
-        private void ShowEquipping(float time, Color color,Action OnEquipped)
+        private void ShowEquipping(float time, Color color,GameObject currentObj,Action OnEquipped)
         {
+            currentEqpObj = currentObj;
             StopAllCoroutines();
             StartCoroutine(ShowEquippingAnim(time, color,OnEquipped));
         }
@@ -77,9 +78,14 @@ namespace InventorySystem.PlayerSystem
             var currentObj = other.gameObject;
             if (hs.Contains(currentObj))
             {
+                if (currentObj == currentEqpObj)
+                {
+                    currentEqpObj = null;
+                    StopAllCoroutines();
+                    uiManager.ShowEquippingImg(0, Color.white);
+                }
                 activeGameObjs.Remove(currentObj);
                 hs.Remove(currentObj);
-                uiManager.ShowEquippingImg(0, Color.white);
             }
         }
 

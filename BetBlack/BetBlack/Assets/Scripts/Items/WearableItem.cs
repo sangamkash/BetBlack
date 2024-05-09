@@ -1,5 +1,5 @@
-using InventorySystem.DataSystem;
-using InventorySystem.Items;
+using BulletEcho.DataSystem;
+using BulletEcho.Items;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

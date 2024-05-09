@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-namespace InventorySystem.Util
+namespace BulletEcho.Util
 {
     public static class MsFileExtensions
     {

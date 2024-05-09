@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace InventorySystem.PlayerSystem
+namespace BulletEcho.PlayerSystem
 {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMovementController : MonoBehaviour

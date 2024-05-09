@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using InventorySystem.Util;
+using BulletEcho.Util;
 using UnityEngine;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
 
-namespace InventorySystem.DataSystem
+namespace BulletEcho.DataSystem
 {
 
     [Serializable]

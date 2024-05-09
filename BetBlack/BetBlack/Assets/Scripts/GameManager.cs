@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using InventorySystem.Items;
-using InventorySystem.DataSystem;
 using System;
+using BulletEcho.DataSystem;
+using BulletEcho.Items;
 
-namespace InventorySystem
+namespace BulletEcho
 {
     [System.Serializable]
     public class SpawnPoint

@@ -1,13 +1,12 @@
-﻿
-
-using InventorySystem.DataSystem;
-using InventorySystem.Items.WeaponeSystem;
-using System;
+﻿using System;
 using System.Collections;
+using BulletEcho.DataSystem;
+using BulletEcho.Items.WeaponeSystem;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace InventorySystem.Items
+namespace BulletEcho.Items
 {
     public class WeaponItem : GenericStorableItem
     {
@@ -15,11 +14,12 @@ namespace InventorySystem.Items
         [SerializeField] private WeaponType weaponType;
         [SerializeField] private Transform shootPoint;
         [SerializeField] private float firePeriod=2;
-        [SerializeField] private float force = 400;
+        [SerializeField] private float speed = 25;
         [SerializeField] private Bullet bulletPrefab;
         [SerializeField] private int bulletLife = 7;
         GenericMonoPool<Bullet> bulletPool;
         private float lastFireTime=-100f;
+        private Coroutine Shooting;
 
         private void Awake()
         {
@@ -39,12 +39,16 @@ namespace InventorySystem.Items
         public override void pickUp(Transform container,Action onThrowDone)
         {
             base.pickUp(container,onThrowDone);
-            StartCoroutine(EnableShoot());
+            Shooting=StartCoroutine(EnableShoot());
         }
         public override void ThrowAway()
         {
             base.ThrowAway();
-            StopAllCoroutines();
+            if (Shooting != null)
+            {
+                StopCoroutine(Shooting);
+                Shooting = null;
+            }
         }
 
 
@@ -65,7 +69,7 @@ namespace InventorySystem.Items
         private void ShootBullet()
         {
             var bullet = bulletPool.GetObject(null);
-            bullet.Init(shootPoint.forward,shootPoint.position, force, bulletLife);
+            bullet.Init(shootPoint.forward,shootPoint.position, speed, bulletLife);
         }
     }
 }

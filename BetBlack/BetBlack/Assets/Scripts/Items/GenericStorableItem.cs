@@ -1,9 +1,9 @@
-﻿using InventorySystem.DataSystem;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using BulletEcho.DataSystem;
 using UnityEngine;
 
-namespace InventorySystem.Items
+namespace BulletEcho.Items
 {
     public abstract class GenericStorableItem : GenericCarryableItem, IStorable, IPoolObj
     {
