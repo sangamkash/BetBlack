@@ -15,6 +15,7 @@ namespace BulletEcho.Items
         [SerializeField] private float speed = 25;
         [SerializeField] private Bullet bulletPrefab;
         [SerializeField] private int bulletLife = 7;
+        [SerializeField] private int damage = 7;
         GenericMonoPool<Bullet> bulletPool;
         private float lastFireTime=-100f;
         private Coroutine Shooting;
@@ -56,7 +57,7 @@ namespace BulletEcho.Items
         private void ShootBullet()
         {
             var bullet = bulletPool.GetObject(null);
-            bullet.Init(shootPoint.forward,shootPoint.position, speed, bulletLife);
+            bullet.Init(shootPoint.forward,shootPoint.position, speed, bulletLife,damage);
         }
     }
 }

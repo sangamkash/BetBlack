@@ -11,14 +11,13 @@ namespace BulletEcho.UI
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
+        [SerializeField] private Camera uICamera;
         [SerializeField] private Image equippingImg;
-        [SerializeField] private Button bagPackBtn;
-        [SerializeField] private Button backBtn;
-        [SerializeField] private CategoryCell categoryCellPrefab;
         [SerializeField] private RectTransform container;
-        [SerializeField] private GameObject inventoryUI;
         [SerializeField] private TextMeshProUGUI toastMsgTxt;
-        //private GenericMonoPool<CategoryCell> categoryCellPool;
+        [SerializeField] private GameObject healthIconPrefab;
+        private GenericMonoPool<HealthIcon> healthIconPool;
+        public Camera GetUICamera => uICamera;
        
         private GameManager gameManager=> GameManager.Instance;
         private GamePlayData data => DataManager.Instance.GetLevelData();
@@ -26,32 +25,14 @@ namespace BulletEcho.UI
         private void Awake()
         {
             Instance = this;
-            //categoryCellPool = new GenericMonoPool<CategoryCell>(categoryCellPrefab);
-            // backBtn.onClick.AddListener(HideUI);
-            // bagPackBtn.onClick.AddListener(ShowUI);
+            healthIconPool = new GenericMonoPool<HealthIcon>(healthIconPrefab);
         }
 
-        private void HideUI()
+        public HealthIcon GetHealthUI()
         {
-            // inventoryUI.gameObject.SetActive(false);
+            return healthIconPool.GetObject(container);
         }
-
-        private void ShowUI()
-        {
-            // inventoryUI.gameObject.SetActive(true);
-            //categoryCellPool.ResetAllPool();
-            // var i = 0;
-            // if (data == null)
-            //     return;
-            // foreach (var item in data.bagPackItems)
-            // {
-            //     var cell = categoryCellPool.GetObject(container);
-            //     cell.Init(item.Key, item.Value, gameManager.EquipItem, HideUI);
-            //     cell.GetComponent<RectTransform>().SetSiblingIndex(i);
-            //     i++;
-            // }
-        }
-
+        
         public void ShowEquippingImg(float value,Color color)
         {
             equippingImg.fillAmount = value;
