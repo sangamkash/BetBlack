@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Data\MsFileExtensions.cs" />
     <Compile Include="Assets\Scripts\Data\ItemTypes.cs" />
     <Compile Include="Assets\Scripts\UI\CategoryCell.cs" />
+    <Compile Include="Assets\Scripts\EnemyGun.cs" />
     <Compile Include="Assets\Scripts\Items\WearableItem.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\ProceduralImage.cs" />
     <Compile Include="Assets\Scripts\Data\SpawnManager.cs" />

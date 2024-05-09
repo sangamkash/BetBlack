@@ -20,8 +20,16 @@ namespace BulletEcho.Items.WeaponeSystem
             var startTime = Time.time;
             while (Time.time-startTime<life)
             {
-                transform.position += dir * (Time.deltaTime * speed);
-                yield return new WaitForEndOfFrame();
+                if (Physics.Raycast(transform.position, dir, Time.deltaTime * speed))
+                {
+                    life = 0;
+                }
+                else
+                {
+                    var dis = Time.deltaTime * speed;
+                    transform.position += dir * dis;
+                    yield return new WaitForEndOfFrame();
+                }
             }
             onReset?.Invoke();
         }

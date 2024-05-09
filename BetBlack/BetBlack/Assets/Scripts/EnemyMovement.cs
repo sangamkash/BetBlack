@@ -8,6 +8,7 @@ namespace BulletEcho.EnemySystem
 {
     public class EnemyMovement : MonoBehaviour
     {
+        [SerializeField] private EnemyGun gun;
         [SerializeField] private NavMeshAgent navMeshAgent;
         [SerializeField]private float waitTime = 2;
         private float reachedTime;
@@ -28,6 +29,7 @@ namespace BulletEcho.EnemySystem
                 destination = other.transform.position;
                 newTargetAssigned = true;
                 opponentDetected = true;
+                gun.StartShooting(other.transform);
             }
         }
 
@@ -36,6 +38,7 @@ namespace BulletEcho.EnemySystem
             if (other.CompareTag(GameConstant.TAG_PLAYER))
             {
                 opponentDetected = false;
+                gun.StopShooting();
             }
         }
 
@@ -58,6 +61,11 @@ namespace BulletEcho.EnemySystem
                     //had Reached;
                     AssignRandomPath();
                 }
+            }
+
+            if (opponentDetected)
+            {
+                
             }
         }
 
