@@ -21,6 +21,7 @@ namespace BulletEcho
             }
         }
 
+
         private void OnDestroy()
         {
             _instance = null;

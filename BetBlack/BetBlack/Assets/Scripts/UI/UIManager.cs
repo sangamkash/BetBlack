@@ -9,9 +9,8 @@ using UnityEngine.UI;
 
 namespace BulletEcho.UI
 {
-    public class UIManager : MonoBehaviour
+    public class UIManager : MonoBehaviourSingleton<UIManager>
     {
-        public static UIManager Instance;
         [SerializeField] private Camera uICamera;
         [SerializeField] private Image equippingImg;
         [SerializeField] private RectTransform container;
@@ -27,19 +26,15 @@ namespace BulletEcho.UI
        
         private GameManager gameManager=> GameManager.Instance;
         private GamePlayData data => DataManager.Instance.GetLevelData();
-
-        private void Awake()
-        {
-            Instance = this;
-            healthIconPool = new GenericMonoPool<HealthIcon>(healthIconPrefab);
-            genericIconPool = new GenericMonoPool<GenericIcon>(genericIconPrefab);
-        }
+        
         public HealthIcon GetHealthUI()
         {
+            healthIconPool ??= new GenericMonoPool<HealthIcon>(healthIconPrefab);
             return healthIconPool.GetObject(container);
         }
         public GenericIcon GetGenericIconUI()
         {
+            genericIconPool ??= new GenericMonoPool<GenericIcon>(genericIconPrefab);
             return genericIconPool.GetObject(container);
         }
         public void ShowEquippingImg(float value,Color color)

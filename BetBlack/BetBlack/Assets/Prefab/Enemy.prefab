@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5133220930573894372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 9073431807773934051}
   - component: {fileID: 1263370149045559649}
   - component: {fileID: 956066188901650582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7097724410868187179}
   - component: {fileID: 3853378259245716614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 7143695616050413654}
   - component: {fileID: 3876898701006606258}
   - component: {fileID: 1223354116291160495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

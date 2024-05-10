@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BulletEcho.Items;
+using BulletEcho.SoundSystem;
 using BulletEcho.UI;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace BulletEcho.PlayerSystem
                     ShowEquipping(1, Color.green,currentObj, () =>
                     {
                         var t=currentObj.GetComponent<GenericConsumable>();
+                        SoundManager.Instance.PlaySoundType(SoundType.HeathUp);
                         t.Consume(transform);
                     });
                     activeGameObjs.Add(currentObj);
@@ -44,6 +46,7 @@ namespace BulletEcho.PlayerSystem
                     {
                         var t=currentObj.GetComponent<GenericCarryableItem>();
                         partController.AssignObjToBodyPart(BodyPart.handRight, currentObj);
+                        SoundManager.Instance.PlaySoundType(SoundType.PickUp);
                     });
                     activeGameObjs.Add(currentObj);
                     break;

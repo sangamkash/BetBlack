@@ -74,6 +74,7 @@ namespace BulletEcho.EnemySystem
         public void OnDie()
         {
             gameManager.RemoveEnemy(this);
+            gameObject.SetActive(false);
         }
     }
 }

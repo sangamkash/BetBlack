@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,22 +11,26 @@ namespace BulletEcho.UI
         [SerializeField] private bool clamp;
         [SerializeField] private bool fadeOnDistance;
         protected T icon;
-        private void Start()
+        
+        private void OnEnable()
         {
-            icon = GetIcon();
-            icon.SetIcon(iconSprite);
+            if (icon == null)
+            {
+                icon = GetIcon();
+                icon.SetIcon(iconSprite);
+            }
         }
-
+        private void OnDisable()
+        {
+            if (icon != null)
+                icon.onReset?.Invoke();
+            icon = null;
+        }
         protected abstract T GetIcon();
         
         private void Update()
         {
             icon.UpdatedPosition(transform.position, clamp,fadeOnDistance);
-        }
-
-        private void OnDestroy()
-        {
-            icon.onReset();
         }
     }
 }

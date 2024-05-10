@@ -19,7 +19,7 @@ namespace BulletEcho
 
         private void OnPlayBtnClick()
         {
-            SceneManager.LoadScene(GameConstant.SCENE_GAMEPLAY);
+            SceneManager.LoadScene(GameConstant.SCENE_LEVEL);
         }
     }
 }

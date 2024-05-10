@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level.unity
     guid: 50bfa2cc459ac874ebbf63d6e5bd6d89
   - enabled: 1
-    path: Assets/Scenes/GamePlay.unity
+    path: Assets/Scenes/GamePlayEasy.unity
     guid: fa09c2bc2a5628545b027a663d529853
+  - enabled: 1
+    path: Assets/Scenes/GamePlayMid.unity
+    guid: f46c185fac1d3b643bc6fb18d70d4712
+  - enabled: 1
+    path: Assets/Scenes/GamePlayHard.unity
+    guid: d2cf3094054c77c418621a43799118fe
   m_configObjects: {}

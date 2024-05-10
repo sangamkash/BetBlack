@@ -62,8 +62,10 @@
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Modifiers\UniformModifier.cs" />
     <Compile Include="Assets\Scripts\EnemySystem\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\UI\GenericIconLinker.cs" />
+    <Compile Include="Assets\Scripts\EnemySystem\RandomPoints.cs" />
     <Compile Include="Assets\Scripts\UI\HealthIcon.cs" />
     <Compile Include="Assets\Scripts\Data\DataManager.cs" />
+    <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Items\GenericCarryableItem.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Modifiers\FreeModifier.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Assets\Scripts\Items\WearableItem.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\ProceduralImage.cs" />
     <Compile Include="Assets\Scripts\PlayerSystem\PlayerMovementController.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\IntoScene.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\Modifiers\OnlyOneEdgeModifier.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBaseIconLinker.cs" />
@@ -82,7 +85,6 @@
     <Compile Include="Assets\Scripts\UI\BaseIcon.cs" />
     <Compile Include="Assets\Scripts\Items\Bullet.cs" />
     <Compile Include="Assets\Scripts\ProceduralUIImage\Scripts\ProceduralImageModifier.cs" />
-    <Compile Include="Assets\Scripts\RandomPoints.cs" />
     <None Include="Library\PackageCache\com.unity.settings-manager@2.0.1\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

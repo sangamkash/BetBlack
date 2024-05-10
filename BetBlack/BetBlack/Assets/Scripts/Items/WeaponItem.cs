@@ -2,6 +2,7 @@
 using System.Collections;
 using BulletEcho.DataSystem;
 using BulletEcho.Items.WeaponeSystem;
+using BulletEcho.SoundSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -58,6 +59,7 @@ namespace BulletEcho.Items
         {
             var bullet = bulletPool.GetObject(null);
             bullet.Init(shootPoint.forward,shootPoint.position, speed, bulletLife,damage);
+            SoundManager.Instance.PlaySoundType(SoundType.Gun);
         }
     }
 }
