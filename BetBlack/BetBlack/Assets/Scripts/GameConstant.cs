@@ -8,6 +8,7 @@ namespace BulletEcho
     {
         public const string SCENE_INTRO = "Intro";
         public const string SCENE_GAMEPLAY = "GamePlay";
+        public const string SCENE_LEVEL = "Level";
         public const string TAG_CONSUMABLE = "Consumable";
         public const string TAG_WEAPON = "Weapon";
         public const string TAG_WEARABLE = "Wearable";

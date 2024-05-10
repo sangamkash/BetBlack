@@ -46,6 +46,8 @@ GameObject:
   - component: {fileID: 7673728952768705107}
   - component: {fileID: 291249525081068941}
   - component: {fileID: 9073431807773934051}
+  - component: {fileID: 1263370149045559649}
+  - component: {fileID: 956066188901650582}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -200,6 +202,64 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.02
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1263370149045559649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932630889193925679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed87c9bd7986078448fb8b867685412e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconSprite: {fileID: 0}
+  clamp: 1
+  fadeOnDistance: 0
+--- !u!114 &956066188901650582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932630889193925679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44f99a447a533b44b1afcd4b1d2bebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1263370149045559649}
+        m_TargetAssemblyTypeName: BulletEcho.UI.HealthIconLinker, Assembly-CSharp
+        m_MethodName: healthUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 291249525081068941}
+        m_TargetAssemblyTypeName: BulletEcho.EnemySystem.EnemyMovement, Assembly-CSharp
+        m_MethodName: OnDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5594056856688277893
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +310,7 @@ MonoBehaviour:
   speed: 25
   bulletPrefab: {fileID: 4358073691103093135, guid: fa6280d0ffd2471418b9f37ffa20642f, type: 3}
   bulletLife: 7
+  damage: 5
 --- !u!1 &7426717379045384312
 GameObject:
   m_ObjectHideFlags: 0

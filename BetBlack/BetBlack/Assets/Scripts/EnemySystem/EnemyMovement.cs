@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 namespace BulletEcho.EnemySystem
 {
     public class EnemyMovement : MonoBehaviour
     {
+        private GameManager gameManager => GameManager.Instance;
         [SerializeField] private EnemyGun gun;
         [SerializeField] private NavMeshAgent navMeshAgent;
         [SerializeField]private float waitTime = 2;
@@ -20,6 +22,7 @@ namespace BulletEcho.EnemySystem
         private void Start()
         {
             AssignRandomPath();
+            gameManager.AddEnemy(this);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -54,26 +57,23 @@ namespace BulletEcho.EnemySystem
                 var diff = transform.position - destination;
                 var stopDis = navMeshAgent.stoppingDistance + 0.05f;
                 var sqrStopDis = stopDis * stopDis;
-                //Debug.Log($"dis=={diff.sqrMagnitude} <= {sqrStopDis} || {Time.time - reachedTime}");
                 if (diff.sqrMagnitude <= sqrStopDis && Time.time - reachedTime > waitTime)
                 {
                     reachedTime = Time.time;
-                    //had Reached;
                     AssignRandomPath();
                 }
-            }
-
-            if (opponentDetected)
-            {
-                
             }
         }
 
         private void AssignRandomPath()
         {
-            //Debug.Log("new path assigned");
             newTargetAssigned = true;
             destination = RandomPoints.Instance.GetRandomPosition(ref lastRandomIndex);
+        }
+
+        public void OnDie()
+        {
+            gameManager.RemoveEnemy(this);
         }
     }
 }

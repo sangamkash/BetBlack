@@ -32,6 +32,8 @@ namespace BulletEcho.PlayerSystem
 
         private void Update()
         {
+            if(Time.timeScale == 0)
+                return;
             var forward = transform.TransformDirection(Vector3.forward);
             var right = transform.TransformDirection(Vector3.right);
             var isRunning = Input.GetKey(KeyCode.LeftShift);

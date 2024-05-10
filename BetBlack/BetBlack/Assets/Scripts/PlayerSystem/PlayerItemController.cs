@@ -11,6 +11,7 @@ namespace BulletEcho.PlayerSystem
     {
         [SerializeField] private PlayerBodyPartController partController;
         private UIManager uiManager=>UIManager.Instance;
+        private GameManager gameManager => GameManager.Instance;
         private HashSet<GameObject> hs = new HashSet<GameObject>();    
         private List<GameObject> activeGameObjs= new List<GameObject>();
         private GameObject currentEqpObj = null;
@@ -92,6 +93,11 @@ namespace BulletEcho.PlayerSystem
         public void EquipItem(GameObject gameObj)
         {
             partController.AssignObjToBodyPart(BodyPart.handRight, gameObj);
+        }
+
+        public void OnDie()
+        {
+            gameManager.GameOver(false);
         }
     }
 }
