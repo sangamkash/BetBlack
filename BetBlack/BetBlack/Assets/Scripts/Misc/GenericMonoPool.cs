@@ -75,6 +75,8 @@ namespace BulletEcho
 
         public void Reset(T obj)
         {
+            if(obj == null || obj.gameObject==null)
+                return;
             obj.gameObject.SetActive(false);
             activePool.Remove(obj);
             inActivePool.Add(obj);
@@ -136,6 +138,8 @@ namespace BulletEcho
 
         public void Reset(GameObject obj)
         {
+            if(obj == null || obj.gameObject==null)
+                return;
             obj.gameObject.SetActive(false);
             activePool.Remove(obj);
             inActivePool.Add(obj);

@@ -29,7 +29,7 @@ namespace BulletEcho.Items
     /// </summary>
     public interface IConsumable
     {
-        void Consume();
+        void Consume(Transform consumer);
     }
 
     public interface IWearable

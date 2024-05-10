@@ -7,10 +7,9 @@ using UnityEngine;
 
 namespace BulletEcho.UI
 {
-    public class HealthIcon : BaseIcon,IPoolObj
+    public class HealthIcon : BaseIcon
     {
         [SerializeField] private TextMeshProUGUI heading;
-        public Action onReset { get; set; }
 
         public void Init(string heading)
         {

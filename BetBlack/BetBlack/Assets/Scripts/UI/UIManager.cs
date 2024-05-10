@@ -16,7 +16,10 @@ namespace BulletEcho.UI
         [SerializeField] private RectTransform container;
         [SerializeField] private TextMeshProUGUI toastMsgTxt;
         [SerializeField] private GameObject healthIconPrefab;
+        [SerializeField] private GameObject genericIconPrefab;
+
         private GenericMonoPool<HealthIcon> healthIconPool;
+        private GenericMonoPool<GenericIcon> genericIconPool;
         public Camera GetUICamera => uICamera;
        
         private GameManager gameManager=> GameManager.Instance;
@@ -26,12 +29,19 @@ namespace BulletEcho.UI
         {
             Instance = this;
             healthIconPool = new GenericMonoPool<HealthIcon>(healthIconPrefab);
+            genericIconPool = new GenericMonoPool<GenericIcon>(genericIconPrefab);
         }
 
         public HealthIcon GetHealthUI()
         {
             return healthIconPool.GetObject(container);
         }
+        
+        public GenericIcon GetGenericIconUI()
+        {
+            return genericIconPool.GetObject(container);
+        }
+
         
         public void ShowEquippingImg(float value,Color color)
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BulletEcho.Items
 {
-    public class GenericCarryableItem : MonoBehaviour,ICarryable
+    public abstract class GenericCarryableItem : MonoBehaviour,ICarryable
     {
         protected Action onThrowDone;
         protected Collider[] colls;

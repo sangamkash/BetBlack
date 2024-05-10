@@ -22,11 +22,11 @@ namespace BulletEcho.PlayerSystem
             hs.Add(currentObj);
             switch (other.gameObject.tag)
             {
-                case GameConstant.TAG_FOOD:
+                case GameConstant.TAG_CONSUMABLE:
                     ShowEquipping(1, Color.green,currentObj, () =>
                     {
-                        var t=currentObj.GetComponent<GenericCarryableItem>();
-                        partController.AssignObjToBodyPart(BodyPart.handRight, currentObj);
+                        var t=currentObj.GetComponent<GenericConsumable>();
+                        t.Consume(transform);
                     });
                     activeGameObjs.Add(currentObj);
                     break;

@@ -1,30 +1,26 @@
-using System;
-using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace BulletEcho.UI
 {
-    public class HealthIconLinker : MonoBehaviour
+    public abstract class BaseIconLinker<T> : MonoBehaviour where T: BaseIcon
     {
         [SerializeField] private Sprite iconSprite;
         [SerializeField] private bool clamp;
-        private HealthIcon icon;
-
+        [SerializeField] private bool fadeOnDistance;
+        protected T icon;
         private void Start()
         {
-            icon = UIManager.Instance.GetHealthUI();
+            icon = GetIcon();
             icon.SetIcon(iconSprite);
         }
 
-        public void healthUpdate(int health)
-        {
-            icon.UpdateHealth(health / 100f);
-        }
-
+        protected abstract T GetIcon();
+        
         private void Update()
         {
-            icon.UpdatedPosition(transform.position,clamp);
+            icon.UpdatedPosition(transform.position, clamp,fadeOnDistance);
         }
 
         private void OnDestroy()
